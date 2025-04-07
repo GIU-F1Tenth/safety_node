@@ -1,0 +1,19 @@
+<package format="3">
+	<name>safety_node</name>
+	<version>0.0.0</version>
+	<description>Automatic emergency braking safety node</description>
+	<maintainer email="user@todo.todo">user</maintainer>
+	<license>TODO</license>
+	<export>
+		<build_type>ament_python</build_type>
+		<exec_depend>rclpy</exec_depend>
+		<exec_depend>sensor_msgs</exec_depend>
+		<exec_depend>nav_msgs</exec_depend>
+		<exec_depend>ackermann_msgs</exec_depend>
+		<exec_depend>numpy</exec_depend>
+		<test_depend>ament_copyright</test_depend>
+		<test_depend>ament_flake8</test_depend>
+		<test_depend>ament_pep257</test_depend>
+		<test_depend>python3-pytest</test_depend>
+	</export>
+</package>
