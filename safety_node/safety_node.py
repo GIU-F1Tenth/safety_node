@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import math
+import time
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
@@ -79,8 +80,10 @@ class SafetyNode(Node):
         if min_ttc < self.ttc_threshold:
             drive_msg = AckermannDriveStamped()
             drive_msg.drive.speed = 0.0
-            self.drive_pub.publish(drive_msg)
-            self.get_logger().info(f'BRAKE! Minimum TTC: {min_ttc:.2f}s')
+            for i in range(100):
+                self.drive_pub.publish(drive_msg)
+                self.get_logger().info(f'BRAKE! Minimum TTC: {min_ttc:.2f}s')
+                time.sleep(0.01)
 
 def main(args=None):
     rclpy.init(args=args)
