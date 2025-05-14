@@ -80,10 +80,9 @@ class SafetyNode(Node):
         if min_ttc < self.ttc_threshold:
             drive_msg = AckermannDriveStamped()
             drive_msg.drive.speed = 0.0
-            for i in range(100):
+            for i in range(1000):
                 self.drive_pub.publish(drive_msg)
                 self.get_logger().info(f'BRAKE! Minimum TTC: {min_ttc:.2f}s')
-                time.sleep(0.01)
 
 def main(args=None):
     rclpy.init(args=args)
